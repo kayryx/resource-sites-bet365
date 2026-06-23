@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MK体育 · 稳定入口与专题介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f7f9fc;
+      color: #1e2a3a;
+      line-height: 1.7;
+    }
+
+    .magazine-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: #0f1722;
+      color: #eef2f6;
+      padding: 80px 20px 70px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-radius: 0 0 48px 48px;
+      margin-bottom: 40px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: -20%;
+      width: 70%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(78, 140, 255, 0.06), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #f0f4ff 0%, #b6d0ff 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 680px;
+      margin: 0 auto;
+      opacity: 0.82;
+      font-weight: 350;
+      line-height: 1.6;
+    }
+
+    .hero .tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 6px 20px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #b8cfff;
+      margin-top: 24px;
+      backdrop-filter: blur(4px);
+      letter-spacing: .4px;
+    }
+
+    /* 正文浅色区 */
+    .content-section {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 48px 44px;
+      margin-bottom: 40px;
+      box-shadow: 0 6px 20px rgba(0, 20, 40, 0.04);
+    }
+
+    .content-section h2 {
+      font-size: 1.9rem;
+      font-weight: 500;
+      margin-bottom: 18px;
+      color: #0b1c2c;
+      border-left: 5px solid #2f6eff;
+      padding-left: 22px;
+      letter-spacing: -.3px;
+    }
+
+    .content-section h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      color: #1e3a5f;
+    }
+
+    .content-section p {
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+      color: #2c3e4e;
+    }
+
+    .content-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .accent-link {
+      color: #2f6eff;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1.5px solid transparent;
+      transition: border-color 0.2s, opacity 0.2s;
+    }
+
+    .accent-link:hover {
+      border-bottom-color: #2f6eff;
+      opacity: 0.85;
+    }
+
+    .info-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 36px 0 16px;
+    }
+
+    .card-item {
+      background: #f5f8fe;
+      border-radius: 20px;
+      padding: 24px 26px;
+      flex: 1 1 200px;
+      min-width: 170px;
+      border: 1px solid #e6edf6;
+      transition: background 0.2s;
+    }
+
+    .card-item .card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .card-item strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #0e2135;
+    }
+
+    .card-item p {
+      font-size: 0.95rem;
+      color: #3b4f62;
+      margin: 0;
+    }
+
+    .faq-mini {
+      background: #f1f5fa;
+      border-radius: 20px;
+      padding: 20px 26px;
+      margin-top: 28px;
+    }
+
+    .faq-mini dt {
+      font-weight: 600;
+      color: #0e2a44;
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+    }
+
+    .faq-mini dd {
+      margin-left: 0;
+      margin-bottom: 16px;
+      color: #2b4055;
+    }
+
+    .faq-mini dd:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .page-footer {
+      text-align: center;
+      padding: 40px 20px 50px;
+      border-top: 1px solid #e0e8f0;
+      margin-top: 20px;
+    }
+
+    .page-footer p {
+      color: #4a5b6e;
+      font-size: 0.95rem;
+    }
+
+    .page-footer .small-note {
+      font-size: 0.85rem;
+      color: #7b8b9c;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .content-section {
+        padding: 32px 20px;
+      }
+      .content-section h2 {
+        font-size: 1.5rem;
+        padding-left: 16px;
+      }
+      .info-cards {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 60px 16px 50px;
+      }
+      .hero .tag {
+        font-size: 0.8rem;
+      }
+      .card-item {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="magazine-wrap">
+    <!-- 深色头图 -->
+    <section class="hero">
+      <h1>MK体育 · 稳定浏览入口</h1>
+      <p>一个面向日常资讯与专题阅读的简明页面，聚合对运动领域的观察和梳理。</p>
+      <span class="tag">杂志专题 · 持续更新</span>
+    </section>
+
+    <!-- 背景说明 + 三段自然介绍 -->
+    <div class="content-section">
+      <h2>关于这个页面</h2>
+      <p>
+        此页面作为 <a href="https://official-portal-mksports.com" class="accent-link">MK体育</a> 
+        的专题说明页，目的是为访问者提供一个快速了解平台定位与内容的入口。页面不替代主站功能，
+        而是整理出一些背景、常见问题和访问指引，方便初次接触的人形成一个整体印象。
+      </p>
+
+      <h3>视野与范围</h3>
+      <p>
+        MK体育涵盖多个运动领域，包括足球、篮球、网球以及综合性赛事。信息组织更偏向于整合性报道与专题汇总，
+        并非单纯的实时比分或数据流。如果你希望在一个相对安静、版面清晰的场景下了解体育资讯，
+        <a href="https://official-portal-mksports.com" class="accent-link">MK体育</a> 
+        提供了一种不那么喧嚣的阅读方式。
+      </p>
+
+      <h3>专题式结构的用意</h3>
+      <p>
+        不同于传统体育门户的密集头条，这里更倾向于以「主题」为单位组织内容。比如某一赛事的前瞻、
+        历史回顾或趋势解读，都会以相对完整的段落呈现。对于喜欢深入阅读而非快速刷新的用户来说，
+        这种节奏会让人更专注。
+      </p>
+
+      <div class="info-cards">
+        <div class="card-item">
+          <div class="card-icon">🏟️</div>
+          <strong>赛事专题</strong>
+          <p>聚焦重点联赛与杯赛，提供背景梳理和赛季脉络。</p>
+        </div>
+        <div class="card-item">
+          <div class="card-icon">📋</div>
+          <strong>阅读体验</strong>
+          <p>段落分明，减少横幅和弹窗干扰，适合静心浏览。</p>
+        </div>
+        <div class="card-item">
+          <div class="card-icon">🔗</div>
+          <strong>稳定入口</strong>
+          <p>主站地址长期维护，方便随时查阅。</p>
+        </div>
+      </div>
+
+      <h3>关于访问与使用</h3>
+      <p>
+        如果你是通过搜索引擎或推荐链接来到这里，可以直接通过上方的入口进入主站。所有专题内容均基于公开信息整理，
+        不包含任何形式的预测、博彩或诱导性表述。我们建议访问者在浏览时保持对信息来源的基本判断力。
+      </p>
+
+      <!-- FAQ 摘要 -->
+      <div class="faq-mini">
+        <dl>
+          <dt>这个页面与主站是什么关系？</dt>
+          <dd>这里是一个独立的介绍页，帮助访客快速了解 MK体育 的内容风格和访问方式，主站提供更完整的专题文章与数据索引。</dd>
+          <dt>内容更新频率如何？</dt>
+          <dd>专题部分会根据赛事周期和热点不定期更新，入口始终保持有效。</dd>
+          <dt>是否需要注册才能阅读？</dt>
+          <dd>目前所有专题内容均可直接浏览，无需注册或登录。</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <footer class="page-footer">
+      <p>
+        如需浏览完整专题与更多内容，可前往 
+        <a href="https://official-portal-mksports.com" class="accent-link">MK体育</a>。
+      </p>
+      <p class="small-note">
+        本页面为介绍性质 · 内容基于开放信息整理
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
